@@ -1,6 +1,48 @@
 <ul>
-    {{#each burger}}
-    <li>{{this.id}} {{this.burger_name}}</li>
-    <button>Devour it!</button>
+    {{#each burgers}}
+    <li>
+        <p>
+            {{this.id}}. {{this.burger_name}}
+            <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
+        </p>
+    </li>
     {{/each}}
 </ul>
+
+<form id="addburger" class="button-size">
+    <textarea type="text" name="burger_name"></textarea>
+    <button type="submit">Submit</button>
+</form>
+<p>Enter a burger you want to eat Click the "Submit" button</p>
+
+<script>
+    $(".devour").on("click", function(event) {
+        var id = $(this).data("burgerid");
+        console.log("ID: " + id);
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT"
+        }).then(
+            () => {
+                console.log("delete id ", id);
+                location.reload();
+            }
+        );
+    });
+
+    $("#addburger").on("submit", function(event) {
+        event.preventDefault();
+        var value = {
+            burger_name: $("#addburger [name=burger_name]").val()
+        };
+        console.log(value);
+
+        $.ajax("/api/burgers", {
+            type: "POST",
+            data: value
+        }).then( () => {
+            console.log("added new burger");
+            location.reload();
+        });
+    });
+
+</script>
