@@ -29,7 +29,7 @@ var orm = {
         queryString += id;
         connection.query(queryString, (err, result) => {
             if (err) throw err;
-            console.log(result);
+            //console.log(result);
             cb (result);
         });
     }
