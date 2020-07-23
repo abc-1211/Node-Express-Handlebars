@@ -9,7 +9,7 @@ const connection = require("./connection");
 
 var orm = {
     selectAll: (cb) => {
-        var queryString = "SELECT * FROM burgers";
+        var queryString = "SELECT * FROM burgers;";
         connection.query(queryString, (err, result) => {
             if (err) throw err;
             //console.log(result);
@@ -17,7 +17,7 @@ var orm = {
         });
     },
     insertOne: (value, cb) => {
-        var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
+        var queryString = "INSERT INTO burgers (burger_name) VALUES (?);";
         connection.query(queryString, [value], (err, result) => {
             if (err) throw err;
             //console.log(result);
