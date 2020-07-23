@@ -1,19 +1,27 @@
+
 <ul>
     {{#each burgers}}
     <li>
-        <p>
+    <div class="row">
+        <div class="col s4">
             {{this.id}}. {{this.burger_name}}
-            <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
-        </p>
+        </div>
+        <div class="col s4 center">
+            <p>
+                <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
+            </p>
+        </div>
+    </div>
     </li>
     {{/each}}
 </ul>
 
-<form id="addburger" class="button-size">
+<form id="addburger" class="button-size center">
     <textarea type="text" name="burger_name"></textarea>
     <button type="submit">Submit</button>
 </form>
-<p>Enter a burger you want to eat Click the "Submit" button</p>
+<p class="center">Enter a burger you want to eat Click the "Submit" button</p>
+<br>
 
 <script>
     $(".devour").on("click", function(event) {
