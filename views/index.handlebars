@@ -1,20 +1,41 @@
-
-<ul>
-    {{#each burgers}}
-    <li>
+<div class="container">
     <div class="row">
-        <div class="col s4">
-            {{this.id}}. {{this.burger_name}}
-        </div>
-        <div class="col s4 center">
-            <p>
-                <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
-            </p>
+        <div class="col m12 s12 center">
+            <img style="border-radius: 50%; height: 15rem; width: auto;" href="../public/assets/images/burgerimage.jpg">
         </div>
     </div>
-    </li>
-    {{/each}}
-</ul>
+    <div class="row">
+        <div class="col m7 s12 center">
+            {{#each burgers}}
+                {{#unless devoured}}
+                    <div class="row">
+
+                        <div class="col m9 s12 center">
+                            {{this.id}}. {{this.burger_name}}
+                        </div>
+                        <div class="col m3 s12 center">
+                            <p>
+                                <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
+                            </p>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </div>
+        
+
+        <div class="col m5 s12 center">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div class="col m12 s12">
+                        {{this.id}}. {{this.burger_name}}
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
 
 <form id="addburger" class="button-size center">
     <textarea type="text" name="burger_name"></textarea>
