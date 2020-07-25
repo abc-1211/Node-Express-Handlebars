@@ -1,7 +1,12 @@
 <div class="container">
     <div class="row">
         <div class="col m12 s12 center">
-            <img style="border-radius: 50%; height: 15rem; width: auto;" href="../public/assets/images/burgerimage.jpg">
+            <img style="border-radius: 50%; height: 15rem; width: auto;" src="/assets/images/burgerimage.jpg">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m12 s12 center">
+            <h1>Eat-Da-Burger!!!</h1>
         </div>
     </div>
     <div class="row">
@@ -15,7 +20,7 @@
                         </div>
                         <div class="col m3 s12 center">
                             <p>
-                                <button data-burgerid="{{this.id}}" class="devour">Devour it!</button>
+                                <button data-burgerid="{{this.id}}" class="devour waves-effect waves-light btn">Devour it!</button>
                             </p>
                         </div>
                     </div>
@@ -38,8 +43,13 @@
 
 
 <form id="addburger" class="button-size center">
-    <textarea type="text" name="burger_name"></textarea>
-    <button type="submit">Submit</button>
+    <div class="row">
+        <div class="input-field col m12 s12">
+          <input id="icon_prefix" type="text" class="validate" name="burger_name">
+          <label for="icon_prefix">New Burger</label>
+          <button type="submit" class="waves-effect waves-light btn">Submit</button>
+        </div>
+    </div>
 </form>
 <p class="center">Enter a burger you want to eat Click the "Submit" button</p>
 <br>
